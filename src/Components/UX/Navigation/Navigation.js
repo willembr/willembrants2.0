@@ -8,7 +8,10 @@ const Navigation = (props) => (
             <h1>Willem Brants</h1>
             <h2>Web application developper</h2>
         </section>
-        <MainPuzzle/>
+        <MainPuzzle 
+            toggle = {props.toggle}
+            fullPuzzle = {props.fullPuzzle} 
+            />
     </div>
 );
 

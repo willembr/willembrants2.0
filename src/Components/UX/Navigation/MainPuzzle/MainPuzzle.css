@@ -1,7 +1,7 @@
 .MainPuzzle{
     position: fixed;
     top:50%;
-    left:46%;
+    left:50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -14,6 +14,11 @@
     width:7em;
     background:url('../../../../assets/images/fullMainPuzzle.svg') no-repeat;
     cursor: pointer;
+}
+
+.MainPuzzle .PuzzlePiece.Clicked{
+    background:url('../../../../assets/images/stippleMainPuzzle.svg') no-repeat;
+    transition: all 1s ease;
 }
 
 .MainPuzzle .Arrow{
