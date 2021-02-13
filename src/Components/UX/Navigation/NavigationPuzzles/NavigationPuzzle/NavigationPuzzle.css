@@ -1,7 +1,7 @@
 .NavigationPuzzle{
     display: inline-block;
-    width: 3em;
-    margin:0 0.8em;
+    width: 3.5em;
+    margin:0 0.7em;
 }
 .Red{fill:#FE2635;stroke:#FFFFFF;stroke-miterlimit:10;}
 .Yellow{fill:#FED000;stroke:#FFFFFF;stroke-miterlimit:10;}
