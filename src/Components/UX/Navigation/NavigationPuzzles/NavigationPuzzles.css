@@ -4,6 +4,11 @@
     bottom:5%;
     padding:0 20px;
     box-sizing: border-box;
+    opacity:0;
+}
+.NavigationPuzzles.Show{
+    opacity: 1;
+    transition: opacity 1s ease-in;
 }
 
 .NavigationPuzzles h4{

@@ -3,8 +3,14 @@ import NavigationPuzzle from './NavigationPuzzle/NavigationPuzzle';
 import './NavigationPuzzles.css';
 
 
-const NavigationPuzzles = props => (
-    <div className="NavigationPuzzles">
+const NavigationPuzzles = props => {
+    let navigationPuzzles_classes = ["NavigationPuzzles"];
+    console.log(props.show);
+    if(props.show){
+        navigationPuzzles_classes = ["NavigationPuzzles","Show"];
+    }
+    return(
+    <div className={navigationPuzzles_classes.join(' ')}>
         <NavigationPuzzle color="Red"/>
         <NavigationPuzzle color="Yellow"/>
         <NavigationPuzzle color="Light-blue"/>
@@ -12,5 +18,6 @@ const NavigationPuzzles = props => (
         <h4>Drag one of the puzzles to the menu puzzle</h4>
     </div>
 );
+    };
 
 export default NavigationPuzzles;

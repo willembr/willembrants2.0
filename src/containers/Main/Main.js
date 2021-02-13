@@ -4,21 +4,21 @@ import Navigation from '../../Components/UX/Navigation/Navigation';
 
 class Main extends Component{
     state = {
-        initial:true
+        navigateMe:false
     }
 
     toggleMainPuzzleHandler = () => {
         this.setState(prevState => ({
-            initial: !prevState.initial
+            navigateMe: !prevState.navigateMe
         }));
     }
     render(){
-        console.log(this.state.initial);
+        console.log(this.state.navigateMe);
         return(
         <div>
             <Navigation 
                 toggle = {this.toggleMainPuzzleHandler}
-                fullPuzzle = {this.state.initial} 
+                fullPuzzle = {this.state.navigateMe} 
                 />
         </div>
         );

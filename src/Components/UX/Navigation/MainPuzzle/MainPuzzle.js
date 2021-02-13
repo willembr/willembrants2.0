@@ -3,7 +3,7 @@ import './MainPuzzle.css';
 
 const MainPuzzle = (props) => {
     let PuzzlePieceClasses = ["PuzzlePiece"];
-    if(!props.fullPuzzle){
+    if(props.fullPuzzle){
         PuzzlePieceClasses = ["PuzzlePiece","Clicked"];
     }
     return(

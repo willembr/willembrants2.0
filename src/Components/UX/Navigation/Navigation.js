@@ -13,7 +13,7 @@ const Navigation = (props) => (
             toggle = {props.toggle}
             fullPuzzle = {props.fullPuzzle} 
             />
-        <NavigationPuzzles/>
+        <NavigationPuzzles show={props.fullPuzzle}/>
     </div>
 );
 
