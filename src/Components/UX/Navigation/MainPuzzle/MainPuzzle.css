@@ -1,0 +1,28 @@
+.MainPuzzle{
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    height:7em;
+    width:7em;
+    background:url('../../../../assets/images/fullMainPuzzle.svg') no-repeat;
+    cursor: pointer;
+}
+
+.MainPuzzle .Arrow{
+    background:url('../../../../assets/images/arrow.svg') no-repeat;
+    height:4em;
+    width:2.2em;
+    margin-top:5.5em;
+    margin-left:3.1em;
+}
+
+.MainPuzzle .Menu{
+    margin:0px 0 0 20px;
+    text-transform: uppercase;
+}
+
