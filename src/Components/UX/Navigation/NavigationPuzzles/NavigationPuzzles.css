@@ -1,0 +1,14 @@
+.NavigationPuzzles{
+    width: 100%;
+    position: fixed;
+    bottom:5%;
+    padding:0 20px;
+    box-sizing: border-box;
+}
+
+.NavigationPuzzles h4{
+    display: block;
+    margin:10px auto 0;
+    color:#646464;
+    font-size: 0.8em;
+}

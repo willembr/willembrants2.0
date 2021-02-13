@@ -1,6 +1,7 @@
 import React from 'react';
 import MainPuzzle from './MainPuzzle/MainPuzzle';
 import './Navigation.css';
+import NavigationPuzzles from './NavigationPuzzles/NavigationPuzzles';
 
 const Navigation = (props) => (
     <div className="Navigation">
@@ -12,6 +13,7 @@ const Navigation = (props) => (
             toggle = {props.toggle}
             fullPuzzle = {props.fullPuzzle} 
             />
+        <NavigationPuzzles/>
     </div>
 );
 
