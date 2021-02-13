@@ -4,6 +4,7 @@ import './MainPuzzle.css';
 const MainPuzzle = (props) => {
     return(
         <div className="MainPuzzle">
+            <div className="PuzzlePiece"></div>
             <div className="Arrow">
             </div>
             <h4 className="Menu">Menu</h4>     
