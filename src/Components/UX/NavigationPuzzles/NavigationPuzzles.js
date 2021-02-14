@@ -5,7 +5,7 @@ import './NavigationPuzzles.css';
 
 
 const NavigationPuzzles = props => {
-    // let navigationPuzzles_classes = ["NavigationPuzzles"];
+    let navigationPuzzles_classes = ["NavigationPuzzles"];
     const navigationPuzzles = Object.keys(props.pages).map( page => {
         return <NavigationPuzzle 
                     key = {page}
@@ -16,11 +16,11 @@ const NavigationPuzzles = props => {
                     touchStart = {props.touchStart}
         />
     })
-    // if(props.show){
-    //     navigationPuzzles_classes = ["NavigationPuzzles","Show"];
-    // }
+     if(props.show){
+         navigationPuzzles_classes = ["NavigationPuzzles","Show"];
+     }
     return(
-    <ul class="NavigationPuzzles">
+    <ul class={navigationPuzzles_classes.join(' ')}>
         {navigationPuzzles}
         <h4>Drag one of the puzzles to the menu puzzle</h4>
     </ul>
