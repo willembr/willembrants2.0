@@ -8,6 +8,8 @@
 
 .Navigation .Title{
     margin-top:3em;
+    position: fixed;
+    width: 100%;
 }
 
 .Navigation .Title h1{
