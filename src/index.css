@@ -1,6 +1,10 @@
-
+html{
+  overflow:hidden;
+}
 body {
   min-height: 100%;
+  position: fixed;
+  overflow-y: auto;
   margin: 0;
   font-family: Tinos-Regular;
   -webkit-font-smoothing: antialiased;
