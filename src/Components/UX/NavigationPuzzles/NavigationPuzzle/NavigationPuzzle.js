@@ -5,7 +5,15 @@ import './NavigationPuzzle.css';
 const NavigationPuzzle = props => {
     return(
 	<li className="Test">
-        <div className="NavigationPuzzle" id={props.id} draggable="true" onDragStart={(e) => props.startDrag(e)} onDragEnd={(e) => props.stopDrag(e)} onTouchMove={(e) => props.touchStart(e,props.id)}>
+        <div 
+			className = "NavigationPuzzle" 
+			id = {props.id} 
+			draggable = "true" 
+			onDragStart = {(e) => props.startDrag(e)} 
+			onDragEnd = {(e) => props.stopDrag(e)} 
+			onTouchMove = {(e) => props.touchStart(e,props.id)}
+			onTouchEnd = {(e) => props.touchEnd(e,props.id)}
+			>
             <svg x="0px" y="0px"
 	                viewBox="0 0 200 200">
             <path className={props.color} d="M198.63,55.84l0.05-0.4l-58.21-0.01c-5.57,0.46-10.08-4.05-10.08-9.61v-0.45c0-3.03,1.4-5.86,3.71-7.81

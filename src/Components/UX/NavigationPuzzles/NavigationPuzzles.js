@@ -14,6 +14,7 @@ const NavigationPuzzles = props => {
                     startDrag = {props.startDrag}
                     stopDrag = {props.stopDrag}
                     touchStart = {props.touchStart}
+                    touchEnd = {props.touchEnd}
         />
     })
      if(props.show){
