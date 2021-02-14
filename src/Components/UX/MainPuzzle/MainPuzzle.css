@@ -10,8 +10,8 @@
 }
 
 .MainPuzzle .PuzzlePiece{
-    height:5em;
-    width:5em;
+    height:7em;
+    width:7em;
     background:url('../../../assets/images/fullMainPuzzle.svg') no-repeat;
     cursor: pointer;
 }
@@ -33,7 +33,7 @@
     font-family: Tinos-Italic;
     text-transform: uppercase;
     margin-top:0.7em;
-    margin-left:1.4em;
-    font-size: 0.9em;
-    letter-spacing: 0.4em;
+    margin-left:2.1em;
+    font-size: 1em;
+    letter-spacing: 0.6em;
 }

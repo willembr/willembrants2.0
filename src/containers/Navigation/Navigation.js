@@ -50,7 +50,7 @@ class Navigation extends Component{
         elementMove.style.left = (touchLocation.pageX - (elementMove.getBoundingClientRect().width / 2)) +  'px' ;
         
         elementMove.style.bottom =  window.innerHeight - (touchLocation.pageY + elementMove.getBoundingClientRect().height) + 'px';
-        elementMove.style.width = "5em";
+        elementMove.style.width = "7em";
 
     }
 
