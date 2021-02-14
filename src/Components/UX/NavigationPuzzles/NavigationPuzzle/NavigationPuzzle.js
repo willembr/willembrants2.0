@@ -1,9 +1,11 @@
 import React from 'react';
 import './NavigationPuzzle.css';
 
+
 const NavigationPuzzle = props => {
     return(
-        <div className="NavigationPuzzle">
+	<li className="Test">
+        <div className="NavigationPuzzle" id={props.id} draggable="true" onDragStart={(e) => props.startDrag(e)} onDragEnd={(e) => props.stopDrag(e)} onTouchMove={(e) => props.touchStart(e,props.id)}>
             <svg x="0px" y="0px"
 	                viewBox="0 0 200 200">
             <path className={props.color} d="M198.63,55.84l0.05-0.4l-58.21-0.01c-5.57,0.46-10.08-4.05-10.08-9.61v-0.45c0-3.03,1.4-5.86,3.71-7.81
@@ -18,8 +20,8 @@ const NavigationPuzzle = props => {
 	c-11.52,0.01-20.88-9.34-20.85-20.88c0.02-11.04,8.85-20.27,19.87-20.77c6.76-0.3,12.86,2.62,16.88,7.36
 	c1.95,2.31,4.78,3.71,7.82,3.7h0.45c5.57-0.01,10.07-4.52,10.07-10.08l-0.05-46.17l-0.07,0.05"/>
         </svg>
-
         </div>
+	</li>
     );
 };
 

@@ -8,10 +8,8 @@ const MainPuzzle = (props) => {
     }
     return(
         <div className="MainPuzzle">
-            <div className={PuzzlePieceClasses.join(' ')} onClick={props.toggle}></div>
-            <div className="Arrow">
-            </div>
-            <h4 className="Menu">Menu</h4>     
+            <div className={PuzzlePieceClasses.join(' ')} onClick={props.toggle}></div> 
+            <h4 className="Menu">Menu</h4>   
         </div>
     );
 }

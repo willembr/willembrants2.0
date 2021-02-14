@@ -1,9 +1,0 @@
-.NavigationPuzzle{
-    display: inline-block;
-    width: 3.5em;
-    margin:0 0.7em;
-}
-.Red{fill:#FE2635;stroke:#FFFFFF;stroke-miterlimit:10;}
-.Yellow{fill:#FED000;stroke:#FFFFFF;stroke-miterlimit:10;}
-.Light-blue{fill:#00CDE8;stroke:#FFFFFF;stroke-miterlimit:10;}
-.Dark-blue{fill:#03A9F5;stroke:#FFFFFF;stroke-miterlimit:10;}

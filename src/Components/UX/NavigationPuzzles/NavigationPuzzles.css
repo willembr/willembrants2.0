@@ -1,10 +1,11 @@
 .NavigationPuzzles{
     width: 100%;
     position: fixed;
-    bottom:4%;
     padding:0 20px;
     box-sizing: border-box;
-    opacity:0;
+    opacity:1;
+    bottom: 0;
+    list-style-type: none;
 }
 .NavigationPuzzles.Show{
     opacity: 1;

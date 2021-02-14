@@ -20,16 +20,9 @@ p,h1,h2,h3,h4 {
   font-weight: normal;
 }
 
-div:active, div:focus {
-  outline: 0;
-  border: none;
-  -moz-outline-style: none;
-}
 div{
   -webkit-tap-highlight-color: transparent;
 }
 
-*:focus {
-  outline: 0 !important;
-}
+
 

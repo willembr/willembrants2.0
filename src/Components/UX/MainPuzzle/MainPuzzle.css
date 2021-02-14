@@ -1,0 +1,39 @@
+.MainPuzzle{
+    position: fixed;
+    top:46%;
+    left:calc(50% - 0.5em);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.MainPuzzle .PuzzlePiece{
+    height:5em;
+    width:5em;
+    background:url('../../../assets/images/fullMainPuzzle.svg') no-repeat;
+    cursor: pointer;
+}
+
+.MainPuzzle .PuzzlePiece.Clicked{
+    background:url('../../../assets/images/stippleMainPuzzle.svg') no-repeat;
+    transition: all 1s ease;
+}
+
+.MainPuzzle .Arrow{
+    background:url('../../../assets/images/arrow.svg') no-repeat;
+    height:4em;
+    width:2.2em;
+    margin:0.3em 0 0.2em 3.1em;
+    transform: rotate(180deg);
+}
+
+.MainPuzzle .Menu{
+    font-family: Tinos-Italic;
+    text-transform: uppercase;
+    margin-top:0.7em;
+    margin-left:1.4em;
+    font-size: 0.9em;
+    letter-spacing: 0.4em;
+}
