@@ -56,10 +56,10 @@ class Navigation extends Component{
     render(){
         return(
             <div className="Navigation">
-                {/* <section className="Title"> 
+                <section className="Title"> 
                       <h1>Willem Brants</h1>
                       <h2>Web application developper</h2>
-                </section> */}
+                </section>
                 <MainPuzzle 
                     toggle = {this.toggleMainPuzzleHandler}
                     fullPuzzle = {this.state.navigateMe} 
