@@ -4,11 +4,12 @@ import './NavigationPuzzle.css';
 
 const NavigationPuzzle = props => {
 	let navigationPuzzleClasses = ["NavigationPuzzle"];
+	let puzzleIconClasses = ["PuzzleIcon", props.id];
 	if(props.show){
 		navigationPuzzleClasses = ["NavigationPuzzle","Show"];
 	}
     return(
-	<li className="Test">
+	<li className="PuzzleContainer">
         <div 
 			className = { navigationPuzzleClasses.join(' ')} 
 			id = {props.id}
@@ -34,6 +35,7 @@ const NavigationPuzzle = props => {
 	c1.95,2.31,4.78,3.71,7.82,3.7h0.45c5.57-0.01,10.07-4.52,10.07-10.08l-0.05-46.17l-0.07,0.05"/>
         </svg>
         </div>
+		<div className={puzzleIconClasses.join(' ')}></div>
 	</li>
     );
 };

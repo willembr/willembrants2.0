@@ -12,8 +12,8 @@
     transform:translateX(-9999px);
 }
 
-.Test{
-    width:25%;
+.PuzzleContainer{
+    width:4.8em;
     height:70px;
     display: inline-block;
 }
@@ -26,3 +26,17 @@
 [color="Dark-blue"].Show{ animation: PuzzleMove 0.4s 1.5s ease-out;}
 
 @keyframes PuzzleMove{   0%{}   50%{ transform : translateY(-20px)}   100%{} }
+
+.PuzzleIcon{
+    z-index: -1;
+    width:22px;
+    height:16px;
+    position: relative;
+    top:4.6em;
+    margin:0 auto;
+}
+
+.PuzzleIcon.contact{ background: url('../../../../assets//images/mail.png') no-repeat;}
+.PuzzleIcon.passions{ background: url('../../../../assets//images/heart.png') no-repeat;}
+.PuzzleIcon.skills{ background: url('../../../../assets//images/brain.png') no-repeat;}
+.PuzzleIcon.creations{ background: url('../../../../assets//images/gear.png') no-repeat;}
