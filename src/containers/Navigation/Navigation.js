@@ -37,7 +37,6 @@ class Navigation extends Component{
 
 
     toggleMainPuzzleHandler = () => {
-        console.log('toggle');
         this.setState(prevState => ({
             navigateMe: !prevState.navigateMe,
             initial:false
@@ -53,7 +52,6 @@ class Navigation extends Component{
     }
 
     touchStartHandler = (e,identifier) => {
-        console.log(identifier);
         let elementMove = document.querySelector(`#${identifier}`);
         let touchLocation = e.targetTouches[0];
 
@@ -64,7 +62,7 @@ class Navigation extends Component{
             const updatePages = { ...this.state.pages };
             const updatePage = { ...updatePages[identifier] };
             updatePage.left = Math.round(elementMove.getBoundingClientRect().left);
-            updatePage.bottom = Math.round(elementMove.getBoundingClientRect().bottom);
+            updatePage.bottom = Math.round((window.innerHeight - elementMove.getBoundingClientRect().bottom) - (elementMove.getBoundingClientRect().width / 2) - 3);
 
             updatePages[identifier] = updatePage;
 
@@ -80,23 +78,76 @@ class Navigation extends Component{
     }
 
     touchEndHandler = (e,identifier) => {
-        const elementMove = document.querySelector(`#${identifier}`);
-        const left = this.state.pages[identifier].left;
+        const puzzleMoved = document.querySelector(`#${identifier}`);
+        this.backToPositionAnimation(puzzleMoved,this.state.pages[identifier]);
+    }
 
-        elementMove.animate([
-            {width: '4em',left:`${left}px`,bottom:'46px'}
-        ],{
-            duration:500,
-            fill:"forwards"
-        });
-        setTimeout(()=> {
-            elementMove.removeAttribute('style');
-            elementMove.setAttribute('style','left:20px;bottom:46px;width:4em');
-        },500);
+    backToPositionAnimation = (puzzleMoved,original) => {
+        let bottom = Math.round((window.innerHeight - puzzleMoved.getBoundingClientRect().bottom));
+        let left = puzzleMoved.getBoundingClientRect().left;
+        let size = parseInt(puzzleMoved.style.width);
+
+        const originalBottom = original.bottom;
+        const originalLeft = original.left;
+
+        // THE SMALLER THE NUMBER => THE FASTER IT GOES
+        const SPEED_REPOSITION = 40;
+
+        // THIS GIVE THE CORRECT VALUE TO GIVE A DIAGONAL IMPRESSION OF THE RE-POSITIONING OF THE PUZZLE
+        let fastLeft = Math.abs((left - originalLeft) / SPEED_REPOSITION);
+        let fastBottom = Math.abs((bottom - originalBottom) / SPEED_REPOSITION);
+
+        let resizePuzzle = setInterval(() => {
+            if( size === 4){
+                clearInterval(resizePuzzle);
+            }
+            else{
+                size -= 0.5;
+                puzzleMoved.style.width = size + 'em';
+
+            }
+        }, 1);
+
+        // THE ANIMATION TO RE-POSITION THE PUZZLE PIECE IF NOT CORRECTLY DROPPED
+        let animation = setInterval(() => {
+            if(left === originalLeft && bottom === originalBottom){
+                clearInterval(animation);
+            }
+            else {
+                if( left !== originalLeft){ 
+                    if(left > originalLeft){
+                        left -= fastLeft;
+                    } else {
+                        left += fastLeft;
+                    }  
+                    puzzleMoved.style.left = left + 'px'
+                    //  GIVING AN ABSOLUTE VALUE SO THE CLEARINTERVAL WILL OCCUR
+                    if(Math.abs(left - originalLeft) < 5){
+                        fastLeft = 1;
+                        left = Math.round(left);
+                    }
+
+                }
+                if( bottom !== originalBottom){
+                    if(bottom > originalBottom){
+                        bottom -= fastBottom;
+                    } else {
+                        bottom += fastBottom;
+                    }  
+                    puzzleMoved.style.bottom = bottom + 'px';
+                    //  GIVING AN ABSOLUTE VALUE SO THE CLEARINTERVAL WILL OCCUR
+                    if(Math.abs(bottom - originalBottom) < 5){
+                        fastBottom = 1;
+                        bottom = Math.round(bottom);
+                    }
+                }
+            }
+         }, 1);
+
+
     }
 
     render(){
-        // console.log(this.state.pages);
         return(
             <div className="Navigation">
                 <section className="Title">
