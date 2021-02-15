@@ -89,6 +89,7 @@ class Navigation extends Component{
         let bottom = Math.round((window.innerHeight - puzzleMoved.getBoundingClientRect().bottom));
         let left = puzzleMoved.getBoundingClientRect().left;
         let size = parseInt(puzzleMoved.style.width);
+        if(isNaN(size)) return;
 
         const originalBottom = original.bottom;
         const originalLeft = original.left;
