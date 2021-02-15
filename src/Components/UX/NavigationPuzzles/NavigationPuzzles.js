@@ -23,7 +23,7 @@ const NavigationPuzzles = props => {
     return(
     <ul class={navigationPuzzles_classes.join(' ')}>
         {navigationPuzzles}
-        <h4>Drag one of the puzzles to the menu puzzle</h4>
+        <h4 className="NavigationPuzzles_info">Drag one of the puzzles to the menu puzzle</h4>
     </ul>
         
     

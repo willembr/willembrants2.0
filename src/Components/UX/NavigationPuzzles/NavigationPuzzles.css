@@ -13,7 +13,7 @@
     transition: opacity 1s ease-in;
 }
 
-.NavigationPuzzles h4{
+.NavigationPuzzles_info{
     display: block;
     margin:1.3em auto 0;
     color:#646464;

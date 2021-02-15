@@ -79,10 +79,10 @@ class Navigation extends Component{
 
     touchEndHandler = (e,identifier) => {
         const puzzleMoved = document.querySelector(`#${identifier}`);
-        this.backToPositionAnimation(puzzleMoved,this.state.pages[identifier]);
+        this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
     }
 
-    backToPositionAnimation = (puzzleMoved,original) => {
+    resetPuzzleAnimation = (puzzleMoved,original) => {
         let bottom = Math.round((window.innerHeight - puzzleMoved.getBoundingClientRect().bottom));
         let left = puzzleMoved.getBoundingClientRect().left;
         let size = parseInt(puzzleMoved.style.width);
@@ -104,14 +104,13 @@ class Navigation extends Component{
             else{
                 size -= 0.5;
                 puzzleMoved.style.width = size + 'em';
-
             }
         }, 1);
 
         // THE ANIMATION TO RE-POSITION THE PUZZLE PIECE IF NOT CORRECTLY DROPPED
-        let animation = setInterval(() => {
+        let backToPosition = setInterval(() => {
             if(left === originalLeft && bottom === originalBottom){
-                clearInterval(animation);
+                clearInterval(backToPosition);
             }
             else {
                 if( left !== originalLeft){ 
