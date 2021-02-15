@@ -3,11 +3,16 @@ import './NavigationPuzzle.css';
 
 
 const NavigationPuzzle = props => {
+	let navigationPuzzleClasses = ["NavigationPuzzle"];
+	if(props.show){
+		navigationPuzzleClasses = ["NavigationPuzzle","Show"];
+	}
     return(
 	<li className="Test">
         <div 
-			className = "NavigationPuzzle" 
-			id = {props.id} 
+			className = { navigationPuzzleClasses.join(' ')} 
+			id = {props.id}
+			color = {props.color} 
 			draggable = "true" 
 			onDragStart = {(e) => props.startDrag(e)} 
 			onDragEnd = {(e) => props.stopDrag(e)} 

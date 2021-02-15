@@ -70,10 +70,13 @@ class Navigation extends Component{
                 pages:updatePages
             });
         }
-
+         // MAKING THE ELEMENT MOVE
          elementMove.style.left = (touchLocation.pageX - (elementMove.getBoundingClientRect().width / 2)) +  'px' ;
          elementMove.style.bottom =  window.innerHeight - (touchLocation.pageY + elementMove.getBoundingClientRect().height) + 'px';
          elementMove.style.width = "7em";
+
+         // CHANGE THE TEXT (NAVIGATIONPUZZLES_H4) TO INDENTIFIER
+
 
     }
 

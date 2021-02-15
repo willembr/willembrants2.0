@@ -16,6 +16,7 @@
 .NavigationPuzzles_info{
     display: block;
     margin:1.3em auto 0;
+    box-sizing: border-box;
     color:#646464;
     font-size: 1em;
 }
