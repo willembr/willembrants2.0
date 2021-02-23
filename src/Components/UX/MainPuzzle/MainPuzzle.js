@@ -7,7 +7,9 @@ const MainPuzzle = (props) => {
         PuzzlePieceClasses = ["PuzzlePiece","Clicked"];
     }
     return(
-        <div className="MainPuzzle">
+        <div className="MainPuzzle" 
+                    onDrop={(e) => props.dropped(e)} 
+                    onDragOver={(e) => props.dragOver(e)} >
             <div className={PuzzlePieceClasses.join(' ')} onClick={props.toggle}></div> 
             <h4 className="Menu">Menu</h4>   
         </div>

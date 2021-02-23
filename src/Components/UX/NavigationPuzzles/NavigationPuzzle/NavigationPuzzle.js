@@ -18,7 +18,7 @@ const NavigationPuzzle = props => {
 			onDragStart = {(e) => props.startDrag(e)} 
 			onDragEnd = {(e) => props.stopDrag(e)} 
 			onTouchMove = {(e) => props.touchStart(e,props.id)}
-			onTouchEnd = {(e) => props.touchEnd(e,props.id)}
+			onTouchEnd = {() => props.touchEnd(props.id)}
 			>
             <svg x="0px" y="0px"
 	                viewBox="0 0 200 200">

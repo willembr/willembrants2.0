@@ -7,6 +7,12 @@ class Navigation extends Component{
     state = {
         initial:true,
         navigateMe:false,
+        dropPuzzle : {
+            left:0,
+            right:0,
+            top:0,
+            bottom:0
+        },
         pages:{
             skills:{
                 active:false,
@@ -33,6 +39,23 @@ class Navigation extends Component{
                 bottom:null
             }
         }
+    }
+
+    componentDidMount(){
+        this.updateDimensions();
+        window.addEventListener('resize', this.updateDimensions);
+    }
+
+    updateDimensions = () => {
+        const mainPuzzle = document.querySelector('.MainPuzzle').getBoundingClientRect();
+        const updateDropPuzzle = { ...this.state.dropPuzzle };
+        updateDropPuzzle.left = mainPuzzle.left;
+        updateDropPuzzle.right = mainPuzzle.right;
+        updateDropPuzzle.bottom = mainPuzzle.bottom;
+        updateDropPuzzle.top = mainPuzzle.top;
+        this.setState({
+            dropPuzzle : updateDropPuzzle
+        });
     }
 
 
@@ -75,20 +98,39 @@ class Navigation extends Component{
          elementMove.style.bottom =  window.innerHeight - (touchLocation.pageY + elementMove.getBoundingClientRect().height) + 'px';
          elementMove.style.width = "7em";
 
+
          // CHANGE THE TEXT (NAVIGATIONPUZZLES_H4) TO INDENTIFIER
 
 
     }
 
-    touchEndHandler = (e,identifier) => {
+    touchEndHandler = (identifier) => {
         const puzzleMoved = document.querySelector(`#${identifier}`);
-        this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
+
+        if(!this.detectHit(puzzleMoved)) this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
+
+
+    }
+
+    detectHit(element){
+        const drop = { ...this.state.dropPuzzle };
+
+        const dragEl = element.getBoundingClientRect();
+
+        const dragX = dragEl.left + ( dragEl.width / 2 );
+        const dragY = dragEl.top + ( dragEl.height / 2 );
+
+        if( dragX < drop.left || dragX > drop.right ) return false;
+        if( dragY < drop.top || dragY > drop.bottom ) return false;
+        return true;
     }
 
     resetPuzzleAnimation = (puzzleMoved,original) => {
         let bottom = Math.round((window.innerHeight - puzzleMoved.getBoundingClientRect().bottom));
         let left = puzzleMoved.getBoundingClientRect().left;
         let size = parseInt(puzzleMoved.style.width);
+
+        //WHEN JUST CLICKED IT WILL GIVE A SIZE OF NAN => TO AVOID BUG RETURN WHEN SIZE IS NOT A NUMBER
         if(isNaN(size)) return;
 
         const originalBottom = original.bottom;
@@ -150,7 +192,16 @@ class Navigation extends Component{
 
     }
 
+    dropHandler = (e) => {
+        //console.log(e);
+    }
+
+    dragOverHandler = (e) => {
+        e.preventDefault();
+    }
+
     render(){
+        console.log(this.state);
         return(
             <div className="Navigation">
                 <section className="Title">
@@ -160,6 +211,8 @@ class Navigation extends Component{
                 <MainPuzzle
                     toggle = {this.toggleMainPuzzleHandler}
                     fullPuzzle = {this.state.navigateMe}
+                    dropped = {this.dropHandler}
+                    dragOver = {this.dragOverHandler}
                 />
                 <NavigationPuzzles
                     show={this.state.navigateMe}
