@@ -1,11 +1,13 @@
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom'; 
 import './App.css';
 import Menu from './containers/Main/Main';
 
 function App() {
   return (
     <div className="App">
-      <Menu/>
+      <BrowserRouter>
+        <Menu/>
+      </BrowserRouter>
     </div>
   );
 }
