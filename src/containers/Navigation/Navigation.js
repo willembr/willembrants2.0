@@ -15,25 +15,21 @@ class Navigation extends Component{
         },
         pages:{
             skills:{
-                active:false,
                 color:"Red",
                 left:null,
                 bottom:null
             },
             creations:{
-                active:false,
                 color:"Yellow",
                 left:null,
                 bottom:null
             },
             passions:{
-                active:false,
                 color:"Light-blue",
                 left:null,
                 bottom:null
             },
             contact:{
-                active:false,
                 color:"Dark-blue",
                 left:null,
                 bottom:null
@@ -107,7 +103,9 @@ class Navigation extends Component{
     touchEndHandler = (identifier) => {
         const puzzleMoved = document.querySelector(`#${identifier}`);
 
-        if(!this.detectHit(puzzleMoved)) this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
+        if(!this.detectHit(puzzleMoved)) return this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
+
+        this.props.history.push(`${identifier}`);
 
 
     }
