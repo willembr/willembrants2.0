@@ -71,8 +71,9 @@ class Navigation extends Component{
     }
 
     touchStartHandler = (e,identifier) => {
-        let elementMove = document.querySelector(`#${identifier}`);
+        let elementMove = document.querySelector(`#${identifier} .NavigationPuzzle`);
         let touchLocation = e.targetTouches[0];
+
 
         // SET ONLY ONCE => INITIAL LEFT EN BOTTOM VALUE FOR EVERY PUZZLE TO RETURN TO DEFAULT
 
@@ -95,32 +96,49 @@ class Navigation extends Component{
          elementMove.style.width = "7em";
 
 
-         // CHANGE THE TEXT (NAVIGATIONPUZZLES_H4) TO INDENTIFIER
+        // DETECT NEARBY ELEMENT
+        // let nearbyDetectationField = { ...this.state.dropPuzzle};
+        // nearbyDetectationField.left = nearbyDetectationField.left - (40 * ( nearbyDetectationField.left/ 100 ));
+        // nearbyDetectationField.right = nearbyDetectationField.right + (20 * ( nearbyDetectationField.right / 100 ));
+        // nearbyDetectationField.top = nearbyDetectationField.top - (40 * ( nearbyDetectationField.top/ 100 ));
+        // nearbyDetectationField.bottom = nearbyDetectationField.bottom + (20 * ( nearbyDetectationField.bottom/ 100 ));
+        document.querySelector('.StrokeDash').classList.add(`${this.state.pages[identifier].color}Light`);
+        
 
 
     }
 
     touchEndHandler = (identifier) => {
-        const puzzleMoved = document.querySelector(`#${identifier}`);
+        const puzzleMoved = document.querySelector(`#${identifier} .NavigationPuzzle `);
+        const drop = { ...this.state.dropPuzzle };
 
-        if(!this.detectHit(puzzleMoved)) return this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
+        if(!this.detectHit(puzzleMoved, drop)) return this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
 
-        this.props.history.push(`${identifier}`);
+        this.closePageAnimation(identifier);        
+        //this.props.history.push(`${identifier}`);
 
 
     }
 
-    detectHit(element){
-        const drop = { ...this.state.dropPuzzle };
+    closePageAnimation(identifier){
+         document.querySelector(`#${identifier} .PuzzleBall`).animate([
+            {transform: 'scale(100)'}
+         ],{
+             duration:1000,
+             fill:'forwards'
+         });
+    }
+
+    detectHit(element, drop){
 
         const dragEl = element.getBoundingClientRect();
-
         const dragX = dragEl.left + ( dragEl.width / 2 );
         const dragY = dragEl.top + ( dragEl.height / 2 );
 
         if( dragX < drop.left || dragX > drop.right ) return false;
         if( dragY < drop.top || dragY > drop.bottom ) return false;
         return true;
+
     }
 
     resetPuzzleAnimation = (puzzleMoved,original) => {
@@ -199,7 +217,6 @@ class Navigation extends Component{
     }
 
     render(){
-        console.log(this.state);
         return(
             <div className="Navigation">
                 <section className="Title">

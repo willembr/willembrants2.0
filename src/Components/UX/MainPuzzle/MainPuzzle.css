@@ -1,6 +1,6 @@
 .MainPuzzle{
     position: fixed;
-    top:46%;
+    top:40%;
     left:calc(50% - 0.5em);
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
@@ -9,17 +9,25 @@
     -ms-transform: translate(-50%, -50%);
 }
 
-.MainPuzzle .PuzzlePiece{
+.Full{fill:#000;}
+.st2{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.8679,11.8679;}
+.st3{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.9038,11.9038;}
+.st4{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.9227,11.9227;}
+.st5{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.9008,11.9008;}
+.StrokeDash{fill:none}
+
+.RedLight{fill:#fda6ac;background-color: #fda6ac; transition: 0.5s 2s all ease-in;}
+.YellowLight{fill:#fceeb0;background-color: #fceeb0;}
+.Light-blueLight{fill:#acf2fb;background-color: #acf2fb;}
+.Dark-blueLight{fill:#96dcfc;background-color: #96dcfc;}
+
+
+ .MainPuzzle .PuzzlePiece{
     height:7em;
     width:7em;
-    background:url('../../../assets/images/fullMainPuzzle.svg') no-repeat;
     cursor: pointer;
 }
 
-.MainPuzzle .PuzzlePiece.Clicked{
-    background:url('../../../assets/images/stippleMainPuzzle.svg') no-repeat;
-    transition: all 1s ease;
-}
 
 .MainPuzzle .Arrow{
     background:url('../../../assets/images/arrow.svg') no-repeat;
@@ -37,3 +45,19 @@
     font-size: 1em;
     letter-spacing: 0.6em;
 }
+
+@keyframes click-wave {
+    0% {
+      height: 40px;
+      width: 40px;
+      opacity: 0.35;
+      position: relative;
+    }
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-left: -80px;
+      margin-top: -80px;
+      opacity: 0;
+    }
+  }

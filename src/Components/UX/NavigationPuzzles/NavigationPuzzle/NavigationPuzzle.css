@@ -1,21 +1,33 @@
-.NavigationPuzzle{
-    position: absolute;
-    width: 4em;
-}
-.Red{fill:#FE2635;stroke:#FFFFFF;stroke-miterlimit:10;}
-.Yellow{fill:#FED000;stroke:#FFFFFF;stroke-miterlimit:10;}
-.Light-blue{fill:#00CDE8;stroke:#FFFFFF;stroke-miterlimit:10;}
-.Dark-blue{fill:#03A9F5;stroke:#FFFFFF;stroke-miterlimit:10;}
-
-.Hide{
-    transition:0.01s;
-    transform:translateX(-9999px);
-}
-
 .PuzzleContainer{
     width:4.8em;
     height:70px;
     display: inline-block;
+}
+.NavigationPuzzle{
+    position: absolute;
+    width: 4em;
+}
+
+.PuzzleRound{
+     position: fixed;
+     width: 1000%;
+     top:50%;
+     left:50%;
+}
+.PuzzleBall{
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    position: fixed;
+    top:45%;
+    left:calc(50% - 0.5em);
+    transform: scale(0);
+    z-index: 1000;
+}
+
+.Hide{
+    transition:0.01s;
+    transform:translateX(-9999px);
 }
 
 /* MAKE PUZZLEPIECES BOUNCE */

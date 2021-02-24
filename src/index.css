@@ -27,5 +27,10 @@ div{
   -webkit-tap-highlight-color: transparent;
 }
 
+.Red{fill:#FE2635;background-color: #FE2635;}
+.Yellow{fill:#FED000;background-color: #FED000;}
+.Light-blue{fill:#00CDE8;background-color: #00CDE8;}
+.Dark-blue{fill:#03A9F5;background-color: #03A9F5;}
+
 
 

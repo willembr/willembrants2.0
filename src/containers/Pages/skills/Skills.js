@@ -5,6 +5,7 @@ class Skills extends Component{
         return(
             <section className="Skills">
                 <p> The skills page </p>
+                
             </section>
         )
     }
