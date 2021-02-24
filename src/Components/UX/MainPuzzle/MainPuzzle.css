@@ -14,12 +14,12 @@
 .st3{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.9038,11.9038;}
 .st4{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.9227,11.9227;}
 .st5{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:11.9008,11.9008;}
-.StrokeDash{fill:none}
+.StrokeDash{fill:#ffffff;transition: 0.5s ease-in;}
 
-.RedLight{fill:#fda6ac;background-color: #fda6ac; transition: 0.5s 2s all ease-in;}
-.YellowLight{fill:#fceeb0;background-color: #fceeb0;}
-.Light-blueLight{fill:#acf2fb;background-color: #acf2fb;}
-.Dark-blueLight{fill:#96dcfc;background-color: #96dcfc;}
+.MainPuzzle .RedLight{fill:#fda6ac;}
+.YellowLight{fill:#fceeb0;}
+.Light-blueLight{fill:#acf2fb;}
+.Dark-blueLight{fill:#96dcfc;}
 
 
  .MainPuzzle .PuzzlePiece{
