@@ -126,19 +126,40 @@ class Navigation extends Component{
 
         if(!this.detectHit(puzzleMoved, drop)) return this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
 
-        this.closePageAnimation(identifier);        
+        this.closePageAnimation(identifier,drop);        
         //this.props.history.push(`${identifier}`);
 
 
     }
 
-    closePageAnimation(identifier){
-         document.querySelector(`#${identifier} .PuzzleBall`).animate([
-            {transform: 'scale(100)'}
+    closePageAnimation(identifier,drop){
+        const element = document.querySelector(`#${identifier} .NavigationPuzzle`).getBoundingClientRect();
+        console.log(drop);
+
+        const setX = drop.left - element.left;
+        const setY = drop.top - element.top;
+        document.querySelector(`#${identifier} .NavigationPuzzle`).animate([
+            {transform:`translate(${setX}px, ${setY}px)`}
+        ],{
+            duration:500,
+            fill:'forwards'
+        });
+
+        document.querySelector(`#${identifier} .PuzzleBall`).animate([
+            {transform:'scale(1)',opacity:0.35},
+            {transform:'scale(30)',opacity:0}
          ],{
-             duration:500,
-             fill:'forwards'
+             duration:650,
+             delay:500,
          });
+
+          document.querySelector(`#${identifier} .PuzzleBall`).animate([
+             {transform: 'scale(100)'}
+          ],{
+              duration:500,
+              delay:1300,
+              fill:'forwards'
+          });
     }
 
     detectHit(element, drop){
