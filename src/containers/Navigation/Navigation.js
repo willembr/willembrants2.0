@@ -107,6 +107,8 @@ class Navigation extends Component{
         // Make menu disappear 
         document.querySelector('.MainPuzzle .Menu').classList.add('Hide');
 
+        // Make drop navigation appear 
+        document.querySelector('.MainPuzzle .DropNav').classList.remove('Hide');
     }
 
     touchEndHandler = (identifier) => {

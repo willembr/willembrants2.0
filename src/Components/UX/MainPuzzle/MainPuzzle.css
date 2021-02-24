@@ -21,20 +21,33 @@
 .Light-blueLight{fill:#acf2fb;}
 .Dark-blueLight{fill:#96dcfc;}
 
+.MainPuzzle .DropNav{
+    position: absolute;
+    top: -45%;
+    left: 38%;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+
+.MainPuzzle .DropTxt{
+    margin-bottom: 0.3em;
+    text-transform: uppercase;
+}
+
+.MainPuzzle .DropNav svg{
+    width: 7px;
+    animation: pointsTo 1s infinite;
+}
+
+@keyframes pointsTo {
+    0%{ transform: translateY(0);}
+    50%{ transform: translateY(10px);}
+}
 
  .MainPuzzle .PuzzlePiece{
     height:7em;
     width:7em;
     cursor: pointer;
-}
-
-
-.MainPuzzle .Arrow{
-    background:url('../../../assets/images/arrow.svg') no-repeat;
-    height:4em;
-    width:2.2em;
-    margin:0.3em 0 0.2em 3.1em;
-    transform: rotate(180deg);
 }
 
 .MainPuzzle .Menu{
@@ -48,7 +61,7 @@
     transition: opacity 0.3s ease-in;
 }
 
-.MainPuzzle .Menu.Hide{
+.MainPuzzle .Hide{
     opacity: 0;
 }
 
