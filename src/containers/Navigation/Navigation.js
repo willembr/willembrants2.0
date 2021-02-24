@@ -112,6 +112,9 @@ class Navigation extends Component{
         const puzzleMoved = document.querySelector(`#${identifier} .NavigationPuzzle `);
         const drop = { ...this.state.dropPuzzle };
 
+        // No display color background main puzzle piece
+        document.querySelector('.StrokeDash').classList.remove(`${this.state.pages[identifier].color}Light`);
+
         if(!this.detectHit(puzzleMoved, drop)) return this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
 
         this.closePageAnimation(identifier);        
