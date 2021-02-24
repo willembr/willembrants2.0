@@ -127,7 +127,7 @@ class Navigation extends Component{
          document.querySelector(`#${identifier} .PuzzleBall`).animate([
             {transform: 'scale(100)'}
          ],{
-             duration:1000,
+             duration:500,
              fill:'forwards'
          });
     }
