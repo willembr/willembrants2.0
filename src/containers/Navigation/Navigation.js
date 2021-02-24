@@ -104,7 +104,8 @@ class Navigation extends Component{
         // nearbyDetectationField.bottom = nearbyDetectationField.bottom + (20 * ( nearbyDetectationField.bottom/ 100 ));
         document.querySelector('.StrokeDash').classList.add(`${this.state.pages[identifier].color}Light`);
         
-
+        // Make menu disappear 
+        document.querySelector('.MainPuzzle .Menu').classList.add('Hide');
 
     }
 
@@ -114,6 +115,9 @@ class Navigation extends Component{
 
         // No display color background main puzzle piece
         document.querySelector('.StrokeDash').classList.remove(`${this.state.pages[identifier].color}Light`);
+
+        // Make menu appear 
+        document.querySelector('.MainPuzzle .Menu').classList.remove('Hide');
 
         if(!this.detectHit(puzzleMoved, drop)) return this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
 

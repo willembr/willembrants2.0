@@ -44,6 +44,12 @@
     margin-left:2.1em;
     font-size: 1em;
     letter-spacing: 0.6em;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+
+.MainPuzzle .Menu.Hide{
+    opacity: 0;
 }
 
 @keyframes click-wave {
