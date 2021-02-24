@@ -121,6 +121,9 @@ class Navigation extends Component{
         // Make menu appear 
         document.querySelector('.MainPuzzle .Menu').classList.remove('Hide');
 
+        // Make drop navigation disappear 
+        document.querySelector('.MainPuzzle .DropNav').classList.add('Hide');
+
         if(!this.detectHit(puzzleMoved, drop)) return this.resetPuzzleAnimation(puzzleMoved,this.state.pages[identifier]);
 
         this.closePageAnimation(identifier);        
