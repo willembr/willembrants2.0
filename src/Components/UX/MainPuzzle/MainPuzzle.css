@@ -1,6 +1,6 @@
 .MainPuzzle{
     position: fixed;
-    top:40%;
+    top:42%;
     left:calc(50% - 0.5em);
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
