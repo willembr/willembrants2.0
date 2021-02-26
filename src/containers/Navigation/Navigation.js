@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import MainPuzzle from '../../Components/UX/MainPuzzle/MainPuzzle';
-import NavigationPuzzles from '../../Components/UX/NavigationPuzzles/NavigationPuzzles';
+import MainPuzzle from '../../Components/navigation/mainPuzzle/MainPuzzle';
+import NavigationPuzzles from '../../Components/navigation/mainPuzzle/NavigationPuzzles/NavigationPuzzles';
 import './Navigation.css';
 
 class Navigation extends Component{
@@ -134,32 +134,30 @@ class Navigation extends Component{
 
     closePageAnimation(identifier,drop){
         const element = document.querySelector(`#${identifier} .NavigationPuzzle`).getBoundingClientRect();
-        console.log(drop);
 
         const setX = drop.left - element.left;
         const setY = drop.top - element.top;
-        document.querySelector(`#${identifier} .NavigationPuzzle`).animate([
-            {transform:`translate(${setX}px, ${setY}px)`}
-        ],{
-            duration:500,
-            fill:'forwards'
-        });
+        
+        //First correct positioning puzzle => pulse effect => full screen color => redirect
+         let animations = [this.animation(`#${identifier} .NavigationPuzzle`, {transform:`translate(${setX}px, ${setY}px)`}, 500, 1, 'forwards'),
+                           this.animation(`#${identifier} .PuzzleBall`, {transform:'scale(30)', opacity:0}, 650, 500, 'none'),
+                           this.animation(`#${identifier} .PuzzleBall`, {transform: 'scale(100)'}, 500, 1300, 'forwards' )];
 
-        document.querySelector(`#${identifier} .PuzzleBall`).animate([
-            {transform:'scale(1)',opacity:0.35},
-            {transform:'scale(30)',opacity:0}
-         ],{
-             duration:650,
-             delay:500,
-         });
+         Promise.all(animations).then( _ => setTimeout( () => { this.props.history.push(`${identifier}`) },500));
+    }
 
-          document.querySelector(`#${identifier} .PuzzleBall`).animate([
-             {transform: 'scale(100)'}
-          ],{
-              duration:500,
-              delay:1300,
-              fill:'forwards'
-          });
+    async animation(element,transform, duration, delay,fill){
+        return new Promise( (resolve) => {
+           setTimeout(() => {
+                document.querySelector(element).animate([
+                    transform
+                ],{
+                    duration:duration,
+                    fill:fill
+                });
+                resolve();
+            },delay);
+        })   
     }
 
     detectHit(element, drop){

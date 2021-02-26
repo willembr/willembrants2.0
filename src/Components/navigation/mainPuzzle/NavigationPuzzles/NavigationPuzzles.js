@@ -1,5 +1,4 @@
 import React from 'react';
-import Auxial from '../../../hoc/Auxial/Auxial';
 import NavigationPuzzle from './NavigationPuzzle/NavigationPuzzle';
 import './NavigationPuzzles.css';
 

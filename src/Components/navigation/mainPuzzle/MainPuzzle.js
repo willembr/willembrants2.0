@@ -1,6 +1,6 @@
 import React from 'react';
 import './MainPuzzle.css';
-import { Arrow, FullPuzzle, DottedPuzzle} from './Svg/svg_puzzles';
+import { Arrow, FullPuzzle, DottedPuzzle} from './svg/svg_puzzles';
 
 const MainPuzzle = (props) => {
     return(

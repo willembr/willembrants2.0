@@ -43,7 +43,7 @@
     margin:0 auto;
 }
 
-.PuzzleIcon.contact{ background: url('../../../../assets//images/mail.png') no-repeat;}
-.PuzzleIcon.passions{ background: url('../../../../assets//images/heart.png') no-repeat;}
-.PuzzleIcon.skills{ background: url('../../../../assets//images/brain.png') no-repeat;}
-.PuzzleIcon.creations{ background: url('../../../../assets//images/gear.png') no-repeat;}
+.PuzzleIcon.contact{ background: url('../../../../../assets/images/mail.png') no-repeat;}
+.PuzzleIcon.passions{ background: url('../../../../../assets//images/heart.png') no-repeat;}
+.PuzzleIcon.skills{ background: url('../../../../../assets//images/brain.png') no-repeat;}
+.PuzzleIcon.creations{ background: url('../../../../../assets//images/gear.png') no-repeat;}
